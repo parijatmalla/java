@@ -1,6 +1,5 @@
 package com.math;
 
-import com.maths.Sum;
 
 public class Calculator {
 
