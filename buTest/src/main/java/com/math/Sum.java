@@ -1,4 +1,4 @@
-package com.maths;
+package com.math;
 
 public class Sum {
 	private int firstno;
