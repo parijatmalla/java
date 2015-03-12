@@ -8,4 +8,5 @@ public interface Operator  {
 	public Object result();
 	
 	public void showResult ();
+	public void setoperators();
 }

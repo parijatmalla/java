@@ -7,13 +7,16 @@ public class ISubtract implements Operator {
 	Integer operand2;
 	Integer result;
 
-	public ISubtract(Integer a, Integer b) {
+	public ISubtract() {
+		// TODO Auto-generated constructor stub
+	
+
+	}
+	public void setoperands(Integer a, Integer b) {
 		// TODO Auto-generated constructor stub
 		operand1 = a;
 		operand2 = b;
-
 	}
-
 	public boolean isInputValid() {
 		// TODO Auto-generated method stub
 
@@ -39,6 +42,10 @@ public class ISubtract implements Operator {
 		System.out.println("The difference between " + operand1 + " and "
 				+ operand2 + " is " + result);
 
+	}
+	public void setoperators() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

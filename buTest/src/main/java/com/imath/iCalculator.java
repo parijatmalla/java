@@ -13,42 +13,19 @@ public class iCalculator {
 	public iCalculator(Integer a, String args, Integer b) {
 		// TODO Auto-generated constructor stub
 
-		if (args.equals("+"))  {
-			ISum s = new ISum(a, b);
-			if (s.isInputValid()) {
-				s.compute();
-				s.showResult();
-				s=null;
-			}
-		}
-			if (args.equals("-"))  {
-				ISubtract sub = new ISubtract(a, b);
-				if (sub.isInputValid()) {
-					sub.compute();
-					sub.showResult();
-					sub=null;
-				}
-			}
-				if (args.equals("*"))  {
-					IMultiply s = new IMultiply(a, b);
-					if (s.isInputValid()) {
-						s.compute();
-						s.showResult();
-						s=null;
-					}
-		}
 	}
 
-		/*
-		 * sum=new Sum(a,b); diff=new Subtract(a,b); m=new Multiply(a,b);
-		 */
-	
+	/*
+	 * sum=new Sum(a,b); diff=new Subtract(a,b); m=new Multiply(a,b);
+	 */
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method st
 		try {
-			iCalculator c = new iCalculator(Integer.parseInt(args[0]), args[1],
-					Integer.parseInt(args[2]));
+			/*
+			 * iCalculator c = new iCalculator(Integer.parseInt(args[0]),
+			 * args[1], Integer.parseInt(args[2]));
+			 */
 
 			/*
 			 * System.out.println("Sum of two numbers " + c.firstno + " and " +
@@ -60,6 +37,40 @@ public class iCalculator {
 			 * " and " + c.secondno + " is " + c.getproduct());
 			 */
 
+			if (args[1].equals("+")) {
+				SumString s1 = new SumString();
+				s1.setoperands(args[0], args[2]);
+				System.out.println("Sum of string:" + s1.addStrings());
+				s1=null;
+				/*
+				 * Sum integers ISum s = new ISum(); s.setoperands(a,b);
+				 * 
+				 * if (s.isInputValid()) { s.compute(); s.showResult(); s=null;
+				 * }
+				 */
+
+			}
+			if (args[1].equals("-")) {
+				ISubtract sub = new ISubtract();
+				sub.setoperands(Integer.parseInt(args[0]),
+						Integer.parseInt(args[2]));
+				if (sub.isInputValid()) {
+					sub.compute();
+					sub.showResult();
+					sub = null;
+				}
+			}
+			if (args[2].equals("*")) {
+				IMultiply s = new IMultiply();
+				s.setoperands(Integer.parseInt(args[0]),
+						Integer.parseInt(args[2]));
+				if (s.isInputValid()) {
+					s.compute();
+					s.showResult();
+					s = null;
+				}
+
+			}
 		} catch (ArrayIndexOutOfBoundsException e) {
 			// TODO: handle exception
 			System.out.println("Args has not been set");
@@ -67,5 +78,4 @@ public class iCalculator {
 		}
 
 	}
-
 }
