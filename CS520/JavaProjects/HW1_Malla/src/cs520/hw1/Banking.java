@@ -1,96 +1,84 @@
 package cs520.hw1;
 
-/* Display denominations of money in ATM*/
-
 import javax.swing.JOptionPane;
 
+/**
+ * @author Parijat Malla
+ * 
+ */
 public class Banking {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-		String input, output;
+		String input;
 		int amount;
-
 		int hundreds, fifties, twenties, tens, fives, twos, ones;
+		int remainingAmount;
 
-		int remainingamount;
-
-		// Get dollar amount from user//
+		// Get dollar amount from user
 		input = JOptionPane.showInputDialog("Enter the amount:");
 		// convert to an integer
 		amount = Integer.parseInt(input);
 
 		System.out.println("Requested Amount = " + amount);
 
-		// get 100 denominations//
-
+		// get denominations of 100
 		hundreds = amount / 100;
 
-		// get remaining amount//
-		remainingamount = amount % 100;
+		remainingAmount = amount % 100;
 		System.out.println("Hundreds = " + hundreds + " , Remaining Amount = "
-				+ remainingamount);
+				+ remainingAmount);
 
-		// get 50 denominations//
+		// get denominations of 50
+		fifties = remainingAmount / 50;
 
-		fifties = remainingamount / 50;
-
-		// get remaining amount//
-		remainingamount = remainingamount % 50;
+		remainingAmount = remainingAmount % 50;
 		System.out.println("Fifties = " + fifties + " , Remaining Amount = "
-				+ remainingamount);
+				+ remainingAmount);
 
-		// get 20 denominations//
+		// get 20 denominations
+		twenties = remainingAmount / 20;
 
-		twenties = remainingamount / 20;
-
-		// get remaining amount//
-		remainingamount = remainingamount % 20;
+		remainingAmount = remainingAmount % 20;
 		System.out.println("Twenties = " + twenties + " , Remaining Amount = "
-				+ remainingamount);
+				+ remainingAmount);
 
-		// get 10 denominations//
+		// get denominations of 10
+		tens = remainingAmount / 10;
 
-		tens = remainingamount / 10;
-
-		// get remaining amount//
-		remainingamount = remainingamount % 10;
+		remainingAmount = remainingAmount % 10;
 		System.out.println("Tens = " + tens + " , Remaining Amount = "
-				+ remainingamount);
+				+ remainingAmount);
 
-		// get 5 denominations//
+		// get denominations of 5
 
-		fives = remainingamount / 5;
+		fives = remainingAmount / 5;
 
-		// get remaining amount//
-		remainingamount = remainingamount % 5;
+		remainingAmount = remainingAmount % 5;
 		System.out.println("Fives = " + fives + " , Remaining Amount = "
-				+ remainingamount);
+				+ remainingAmount);
 
-		// get 2 denominations//
+		// get denominations of 2
 
-		twos = remainingamount / 2;
+		twos = remainingAmount / 2;
 
-		// get remaining amount//
-		remainingamount = remainingamount % 2;
+		remainingAmount = remainingAmount % 2;
 		System.out.println("Twos = " + twos + " , Remaining Amount = "
-				+ remainingamount);
+				+ remainingAmount);
 
-		// get 1 denominations//
+		// get denominations of 1
 
-		ones = remainingamount / 1;
+		ones = remainingAmount / 1;
 
-		// get remaining amount//
-		remainingamount = remainingamount % 1;
+		remainingAmount = remainingAmount % 1;
 		System.out.println("Ones = " + ones);
 
-		// show the denominations to user//
+		// show the denominations to user
 
-		JOptionPane.showMessageDialog(null, "Requested Amount (" + amount
-				+ ")" + "\r\nHundreds (" + hundreds + ")" +"\r\nFifties (" + fifties + ")" + "\r\nTwenties ("
-				+ twenties + ")" + "\r\nTens (" + tens + ")" + "\r\nFives ("
-				+ fives + ")" + "\r\nTwos (" + twos + ")" + "\r\nOnes ("
-				+ ones + ")");
+		JOptionPane.showMessageDialog(null, "Requested Amount (" + amount + ")"
+				+ "\r\nHundreds (" + hundreds + ")" + "\r\nFifties (" + fifties
+				+ ")" + "\r\nTwenties (" + twenties + ")" + "\r\nTens (" + tens
+				+ ")" + "\r\nFives (" + fives + ")" + "\r\nTwos (" + twos + ")"
+				+ "\r\nOnes (" + ones + ")");
 	}
 }
