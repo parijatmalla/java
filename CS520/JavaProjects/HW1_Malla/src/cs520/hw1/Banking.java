@@ -5,7 +5,12 @@ import javax.swing.JOptionPane;
 /**
  * @author Parijat Malla
  * 
- */
+ * 
+ * program to get input from user and show the number of bills of denominations 100,50,20,10,5,2,1
+ *
+ * */
+
+
 public class Banking {
 
 	public static void main(String[] args) {
