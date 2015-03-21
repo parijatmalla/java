@@ -22,7 +22,8 @@ public class Banking {
 
 		// Get dollar amount from user
 		input = JOptionPane.showInputDialog("Enter the amount:");
-		// convert to an integer
+		
+		// convert to an integer assuming user sends only integer
 		amount = Integer.parseInt(input);
 
 		System.out.println("Requested Amount = " + amount);
@@ -81,9 +82,9 @@ public class Banking {
 		// show the denominations to user
 
 		JOptionPane.showMessageDialog(null, "Requested Amount (" + amount + ")"
-				+ "\r\nHundreds (" + hundreds + ")" + "\r\nFifties (" + fifties
-				+ ")" + "\r\nTwenties (" + twenties + ")" + "\r\nTens (" + tens
-				+ ")" + "\r\nFives (" + fives + ")" + "\r\nTwos (" + twos + ")"
-				+ "\r\nOnes (" + ones + ")");
+				+ "\nHundreds (" + hundreds + ")" + "\nFifties (" + fifties
+				+ ")" + "\nTwenties (" + twenties + ")" + "\nTens (" + tens
+				+ ")" + "\nFives (" + fives + ")" + "\nTwos (" + twos + ")"
+				+ "\nOnes (" + ones + ")");
 	}
 }
