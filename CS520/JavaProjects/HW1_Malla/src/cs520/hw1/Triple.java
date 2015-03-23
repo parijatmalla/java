@@ -33,7 +33,7 @@ public class Triple {
 
 				// check if sum of the squares of x and y is equal to square of
 				// integer z
-				if (sumOfSquares == z * z) {
+				if (sumOfSquares == (z * z) ) {
 
 					System.out.println(i + ")" + "\t" + x + "\t " + y + " \t"
 							+ z);
