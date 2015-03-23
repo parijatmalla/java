@@ -10,7 +10,7 @@ public class Triple {
 	public static void main(String[] args) {
 
 		double z = 0;
-		double sumOfSquares = 0;
+		int sumOfSquares = 0;
 
 		int i = 1;
 
@@ -19,6 +19,7 @@ public class Triple {
 
 			// loop for y starting from x+1 so that duplicate combination of
 			// pythagorean triples are avoided
+			//reason for y=x+1 and not y=x is because when y=x, z is sqrt(2) *x and  is never a perfect integer 
 			for (int y = x + 1; y <= 100; y++) {
 
 				// calculate sum of squares of x and y
