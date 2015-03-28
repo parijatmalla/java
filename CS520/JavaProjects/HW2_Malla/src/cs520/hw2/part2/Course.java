@@ -14,9 +14,40 @@ public class Course {
 	private int costPerCredit;
 	private int numberOfCredits;
 
+	/*
 	public Course() {
+		this("Unknown course",0,1);
+		System.out.println("In Course Constructor values set: ");
+		System.out.println("\tCourseName = " + getCourseName()
+				+ ", CostPerCredit = " + "$" + getCostPerCredit()
+				+ ", NumberOfCredits = " + getNumberOfCredits());
 	}
 
+	public Course(String cName) {
+		// when no of credits is not provided, consider 1 credit
+		// when cost per credit is not provided consider zero cost
+		this(cName, 0, 1);
+
+		System.out.println("In Course Constructor values set: ");
+		System.out.println("\tCourseName = " + getCourseName()
+				+ ", CostPerCredit = " + "$" + getCostPerCredit()
+				+ ", NumberOfCredits = " + getNumberOfCredits());
+
+	}
+
+	public Course(String cName, int cPCredit) {
+		// when no of credits is not provided, consider 1 credit
+		this(cName, cPCredit, 1);
+
+		System.out.println("In Course Constructor values set: ");
+		System.out.println("\tCourseName = " + getCourseName()
+				+ ", CostPerCredit = " + "$" + getCostPerCredit()
+				+ ", NumberOfCredits = " + getNumberOfCredits());
+
+	}
+*/
+	
+	//constructor with three arguments.
 	public Course(String cName, int cPCredit, int noOfCredits) {
 
 		courseName = cName;
