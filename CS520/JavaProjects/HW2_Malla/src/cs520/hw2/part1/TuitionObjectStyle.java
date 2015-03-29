@@ -3,13 +3,15 @@
  */
 package cs520.hw2.part1;
 
+import java.text.NumberFormat;
+
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /*
  * @author Parijat Malla 
  * 		   program to write TuitionProcedure in object oriented
- *         style. this program gets course details from user, computes the
+ *         style. this program gets two course details from user, computes the
  *         tuition fee for each using the class Course and compares their fees.
  *         also the program displays which course has higher fee including the
  *         difference
@@ -41,7 +43,7 @@ public class TuitionObjectStyle {
 		JTextField field2 = new JTextField();
 		JTextField field3 = new JTextField();
 
-		// for second course
+		// variables for second course
 		String courseName2 = new String();
 		int costPerCredit2 = 0;
 		int numberOfCredits2 = 0;
@@ -54,11 +56,23 @@ public class TuitionObjectStyle {
 		int option = JOptionPane.showConfirmDialog(null, course1,
 				"Enter course details for first course",
 				JOptionPane.OK_CANCEL_OPTION);
-		if (option == JOptionPane.OK_OPTION) {
 
-			courseName1 = field1.getText();
-			costPerCredit1 = Integer.parseInt(field2.getText());
-			numberOfCredits1 = Integer.parseInt(field3.getText());
+		if (option == JOptionPane.CANCEL_OPTION) {
+			System.out.println("Program has been cancelled by user.");
+			System.exit(1);
+		} else if (option == JOptionPane.OK_OPTION) {
+
+			try {
+				courseName1 = field1.getText();
+				costPerCredit1 = Integer.parseInt(field2.getText());
+				numberOfCredits1 = Integer.parseInt(field3.getText());
+			} catch (NumberFormatException e) {
+
+				// when input from user are not valid, program is terminated
+				System.out
+						.println("Invalid arguments entered. Program terminated");
+				System.exit(1);
+			}
 
 		}
 
@@ -86,10 +100,19 @@ public class TuitionObjectStyle {
 		int options = JOptionPane.showConfirmDialog(null, course2,
 				"Enter course details for second course",
 				JOptionPane.OK_CANCEL_OPTION);
-		if (options == JOptionPane.OK_OPTION) {
-			courseName2 = field4.getText();
-			costPerCredit2 = Integer.parseInt(field5.getText());
-			numberOfCredits2 = Integer.parseInt(field6.getText());
+		if (options == JOptionPane.CANCEL_OPTION) {
+			System.out.println("Program has been cancelled by user");
+			System.exit(1);
+		} else if (options == JOptionPane.OK_OPTION) {
+			try {
+				courseName2 = field4.getText();
+				costPerCredit2 = Integer.parseInt(field5.getText());
+				numberOfCredits2 = Integer.parseInt(field6.getText());
+			} catch (NumberFormatException e) {
+				System.out
+						.println("Invalid arguments entered.Program terminated");
+				System.exit(1);
+			}
 
 		}
 
@@ -102,7 +125,7 @@ public class TuitionObjectStyle {
 
 		// print course name and the tuition fee for second courses
 		c2.printTuitionDetails();
-
+		NumberFormat formattedno = NumberFormat.getCurrencyInstance();
 		if (c1.getTotalTuition() > c2.getTotalTuition()) {
 			JOptionPane
 					.showMessageDialog(
@@ -112,8 +135,8 @@ public class TuitionObjectStyle {
 									+ " is higher than second course "
 									+ c2.getCourseName()
 									+ ". The difference in fee between these courses is "
-									+ (c1.getTotalTuition() - c2
-											.getTotalTuition()));
+									+ formattedno.format((c1.getTotalTuition() - c2
+											.getTotalTuition())));
 		} else if (c1.getTotalTuition() < c2.getTotalTuition()) {
 			JOptionPane
 					.showMessageDialog(
@@ -123,8 +146,8 @@ public class TuitionObjectStyle {
 									+ " is higher than first course "
 									+ c1.getCourseName()
 									+ ". The difference in fee between these courses is "
-									+ (c2.getTotalTuition() - c1
-											.getTotalTuition()));
+									+ formattedno.format((c2.getTotalTuition() - c1
+											.getTotalTuition())));
 		} else if (c1.getTotalTuition() == c2.getTotalTuition()) {
 			JOptionPane.showMessageDialog(null, "The fee for both the courses "
 					+ c2.getCourseName() + " and " + c2.getCourseName()

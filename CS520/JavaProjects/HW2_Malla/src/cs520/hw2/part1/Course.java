@@ -1,10 +1,12 @@
 package cs520.hw2.part1;
 
+import java.text.NumberFormat;
+
 import javax.swing.JOptionPane;
 
 /*
  *@author parijat malla
- * Class for a course that has methods for getting course details from user, printing course details to user,
+ * This is a Class for a course that has methods for getting course details from user, printing course details to user,
  *  computing tuition fees and display tuition fee to user 
  */
 
@@ -63,17 +65,17 @@ public class Course {
 	}
 
 	public int getTotalTuition() {
+		//compute tuition fee which is product of number of credit and cost per credit
 		int tuition = costPerCredit * numberOfCredits;
 
 		return tuition;
 	}
 
 	public void printTuitionDetails() {
+		NumberFormat formattedno=NumberFormat.getCurrencyInstance();
 		JOptionPane.showMessageDialog(null, "The fee for course " + courseName
-				+ " is " + getTotalTuition());
+				+ " is " + formattedno.format(getTotalTuition()));
 	}
 
-	public static void main(String[] args) {
 
-	}
 }

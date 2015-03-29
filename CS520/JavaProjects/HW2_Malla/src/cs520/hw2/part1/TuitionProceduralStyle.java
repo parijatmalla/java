@@ -39,7 +39,10 @@ public class TuitionProceduralStyle {
 		int option = JOptionPane.showConfirmDialog(null, course1,
 				"Enter course details for first course",
 				JOptionPane.OK_CANCEL_OPTION);
-		if (option == JOptionPane.OK_OPTION) {
+		if (option == JOptionPane.CANCEL_OPTION) {
+			System.out.println("Program has been cancelled by user");
+			System.exit(1);
+		} else if (option == JOptionPane.OK_OPTION) {
 
 			try {
 				courseName1 = field1.getText();
@@ -49,15 +52,17 @@ public class TuitionProceduralStyle {
 				// compute tuition fee for first course
 				tuition1 = numberOfCredits1 * costPerCredit1;
 			} catch (NumberFormatException e) {
-				System.out.println("Enter all the course details");
+				System.out
+						.println("Invalid arguments entered. Program terminated");
+				System.exit(1);
 			}
 
 		}
 
 		// display tuition fee for first course
-		//formating tuition fee to currency format
-		NumberFormat numberformatter1=NumberFormat.getCurrencyInstance();
-		
+		// formating tuition fee to currency format
+		NumberFormat numberformatter1 = NumberFormat.getCurrencyInstance();
+
 		JOptionPane.showMessageDialog(null, "The tuition for first course "
 				+ courseName1 + " is " + numberformatter1.format(tuition1));
 
@@ -73,7 +78,10 @@ public class TuitionProceduralStyle {
 		int options = JOptionPane.showConfirmDialog(null, course2,
 				"Enter course details for second course",
 				JOptionPane.OK_CANCEL_OPTION);
-		if (options == JOptionPane.OK_OPTION) {
+		if (options == JOptionPane.CANCEL_OPTION) {
+			System.out.println("Program has been cancelled by user.");
+			System.exit(1);
+		} else if (options == JOptionPane.OK_OPTION) {
 
 			try {
 				courseName2 = field4.getText();
@@ -83,14 +91,16 @@ public class TuitionProceduralStyle {
 				// compute tuition fee for second course
 				tuition2 = numberOfCredits2 * costPerCredit2;
 			} catch (NumberFormatException e) {
-				System.out.println("Enter all the details for the course");
+				System.out
+						.println("Invalid arguments entered. Program terminated");
+				System.exit(1);
 			}
 		}
 
 		// display the tuition fee for second course
-		NumberFormat numberformatter2=NumberFormat.getCurrencyInstance();
+		// NumberFormat numberformatter2=NumberFormat.getCurrencyInstance();
 		JOptionPane.showMessageDialog(null, "The tuition for second course "
-				+ courseName2 + " is " + numberformatter2.format(tuition2));
+				+ courseName2 + " is " + numberformatter1.format(tuition2));
 
 		// compare the tuition for both the courses and find out which one is
 		// expensive
@@ -99,13 +109,13 @@ public class TuitionProceduralStyle {
 					+ courseName1 + " is cheaper than second course "
 					+ courseName2
 					+ ". The difference between these courses is "
-					+ (tuition1 - tuition2));
+					+ numberformatter1.format((tuition1 - tuition2)));
 		} else if (tuition1 < tuition2) {
 			JOptionPane.showMessageDialog(null, "The first course "
 					+ courseName1 + " is cheaper than second course "
 					+ courseName2
 					+ ". The difference between these courses is "
-					+ (tuition2 - tuition1));
+					+ numberformatter1.format((tuition2 - tuition1)));
 		} else if (tuition1 == tuition2) {
 			JOptionPane
 					.showMessageDialog(null, "Both the courses " + courseName1
