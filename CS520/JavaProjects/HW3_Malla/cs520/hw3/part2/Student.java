@@ -3,6 +3,8 @@
  */
 package cs520.hw3.part2;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Formatter;
 
 /*
@@ -80,9 +82,11 @@ public Student(String n){}
 	} 
 	
 	public String toString(){
-		String s="\n"+name+"'s"+" average grade is "+computeAverage();
-		//String s="\"\nThe %s\'s average grade is %6.2f\",name, computeAverage()";
-		//System.out.printf("\nThe %s's average grade is %6.2f",name, computeAverage());
+		DecimalFormat formatter=new DecimalFormat("#.00");
+		String sformatted=formatter.format(computeAverage());
+		String s="\n"+name+"'s"+" average grade is "+sformatted;
+
+		
 		return s;
 	}
 	public static void main(String[] args) {
