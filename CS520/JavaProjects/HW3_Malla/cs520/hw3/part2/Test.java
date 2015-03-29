@@ -23,15 +23,13 @@ public class Test {
 	}
 
 	public static void processInputData(String st) {
-		StringTokenizer st1 = new StringTokenizer(st,",");
+		StringTokenizer st1 = new StringTokenizer(st, ",");
 		String token;
 		int i = 1;
 		Student currentStudent = new Student();
-		
-	
+
 		while (st1.hasMoreTokens()) {
 			token = st1.nextToken();
-		
 
 			switch (i) {
 			case 1:
@@ -64,11 +62,10 @@ public class Test {
 				i++;
 				break;
 			}
-		//	System.out.println("token-i"+token+","+i);
-			
+			// System.out.println("token-i"+token+","+i);
 
 		}
-		
+
 		System.out.printf(currentStudent.toString());
 	}
 
@@ -82,27 +79,29 @@ public class Test {
 
 		try {
 			inputStream = new BufferedReader(new FileReader("data.txt"));
-			//System.out.println("buffered");
-			
+			// System.out.println("buffered");
+
 		} catch (FileNotFoundException e1) {
 
 			System.out.println("File not found");
 			// e1.printStackTrace();
 		}
+
 		try {
+			line = inputStream.readLine();
 			while (line != null) {
-				line = inputStream.readLine();
-				//System.out.println(line);
+
+				// System.out.println(line);
 				processInputData(line);
-			//	line=inputStream.readLine();
-			//	System.out.println("in readline");
-				
+				line = inputStream.readLine();
+				// line=inputStream.readLine();
+				// System.out.println("in readline");
+
 			}
-		} catch (NullPointerException e) {
+			inputStream.close();
+		} catch (IOException e) {
 			System.out.println("End of file");
 		}
-		
-		
 
 	}
 

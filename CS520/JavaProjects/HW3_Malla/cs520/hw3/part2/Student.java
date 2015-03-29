@@ -3,6 +3,8 @@
  */
 package cs520.hw3.part2;
 
+import java.util.Formatter;
+
 /*
  * @author parijat malla
  *
@@ -79,6 +81,7 @@ public Student(String n){}
 	
 	public String toString(){
 		String s="\n"+name+"'s"+" average grade is "+computeAverage();
+		//String s="\"\nThe %s\'s average grade is %6.2f\",name, computeAverage()";
 		//System.out.printf("\nThe %s's average grade is %6.2f",name, computeAverage());
 		return s;
 	}
