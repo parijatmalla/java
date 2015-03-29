@@ -3,8 +3,6 @@
  */
 package cs520.hw3.part1;
 
-
-
 import javax.swing.JOptionPane;
 
 /*
@@ -43,6 +41,14 @@ public class StringTest {
 			input = JOptionPane
 					.showInputDialog("Please enter data using the format CourseID, CourseName, Tuition:");
 
+			if(input==null)
+			{
+				System.out.println("Program has been cancelled");
+				System.exit(1);
+				
+			}
+			
+			else {
 			// trim the input to remove leading and trailing white spaces
 			input = input.trim();
 
@@ -111,10 +117,13 @@ public class StringTest {
 				
 				
 				System.out
-						.println("Tuition fee provided in not a whole number. Please try again!");
+						.println("Tuition fee provided is not a whole number. Please try again!");
+				System.exit(1);
 
 			}
 			
+			
 		}
 	}
+}
 }
