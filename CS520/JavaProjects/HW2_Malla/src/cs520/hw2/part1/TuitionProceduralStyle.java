@@ -1,5 +1,7 @@
 package cs520.hw2.part1;
 
+import java.text.NumberFormat;
+
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
 
@@ -18,13 +20,13 @@ public class TuitionProceduralStyle {
 		JTextField field2 = new JTextField();
 		JTextField field3 = new JTextField();
 
-		// for first course
+		// variables for first course
 		String courseName1 = new String();
 		int costPerCredit1 = 0;
 		int numberOfCredits1 = 0;
 		int tuition1 = 0;
 
-		// for second course
+		// variables for second course
 		String courseName2 = new String();
 		int costPerCredit2 = 0;
 		int numberOfCredits2 = 0;
@@ -43,6 +45,8 @@ public class TuitionProceduralStyle {
 				courseName1 = field1.getText();
 				costPerCredit1 = Integer.parseInt(field2.getText());
 				numberOfCredits1 = Integer.parseInt(field3.getText());
+
+				// compute tuition fee for first course
 				tuition1 = numberOfCredits1 * costPerCredit1;
 			} catch (NumberFormatException e) {
 				System.out.println("Enter all the course details");
@@ -51,8 +55,11 @@ public class TuitionProceduralStyle {
 		}
 
 		// display tuition fee for first course
+		//formating tuition fee to currency format
+		NumberFormat numberformatter1=NumberFormat.getCurrencyInstance();
+		
 		JOptionPane.showMessageDialog(null, "The tuition for first course "
-				+ courseName1 + " is " + tuition1);
+				+ courseName1 + " is " + numberformatter1.format(tuition1));
 
 		// get course name, credit and cost per credit from user for second
 		// course
@@ -72,6 +79,8 @@ public class TuitionProceduralStyle {
 				courseName2 = field4.getText();
 				costPerCredit2 = Integer.parseInt(field5.getText());
 				numberOfCredits2 = Integer.parseInt(field6.getText());
+
+				// compute tuition fee for second course
 				tuition2 = numberOfCredits2 * costPerCredit2;
 			} catch (NumberFormatException e) {
 				System.out.println("Enter all the details for the course");
@@ -79,8 +88,9 @@ public class TuitionProceduralStyle {
 		}
 
 		// display the tuition fee for second course
+		NumberFormat numberformatter2=NumberFormat.getCurrencyInstance();
 		JOptionPane.showMessageDialog(null, "The tuition for second course "
-				+ courseName2 + " is " + tuition2);
+				+ courseName2 + " is " + numberformatter2.format(tuition2));
 
 		// compare the tuition for both the courses and find out which one is
 		// expensive
