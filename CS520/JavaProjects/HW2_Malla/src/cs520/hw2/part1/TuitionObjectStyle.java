@@ -35,12 +35,10 @@ public class TuitionObjectStyle {
 
 		// get input from user
 		// for first course
-	
+
 		JTextField field1 = new JTextField();
 		JTextField field2 = new JTextField();
 		JTextField field3 = new JTextField();
-
-		
 
 		Object[] course1 = { "Course Name", field1, "Number of Credits",
 				field2, "Cost Per Unit Credits", field3 };
@@ -51,6 +49,7 @@ public class TuitionObjectStyle {
 				"Enter course details for first course",
 				JOptionPane.OK_CANCEL_OPTION);
 
+		// When user presses cancel, program exits
 		if (option == JOptionPane.CANCEL_OPTION) {
 			System.out.println("Program has been cancelled by user.");
 			System.exit(1);
@@ -69,7 +68,8 @@ public class TuitionObjectStyle {
 
 			} catch (NumberFormatException e) {
 
-				// when input from user are not valid, program is terminated
+				// when input from user are not valid(non integers entered in
+				// no. of credits and cost per credit), program is terminated
 				System.out
 						.println("Invalid arguments entered. Program terminated");
 				System.exit(1);
@@ -77,14 +77,15 @@ public class TuitionObjectStyle {
 
 		}
 
-		// get course name, credit and cost per credit from user for second
-		// course
-		JTextField field4 = new JTextField();
-		JTextField field5 = new JTextField();
-		JTextField field6 = new JTextField();
+		// reinitializing same JTextField to get course name, credit and cost
+		// per credit from user for second
+		// course as old JTextField are no longer required
+		field1 = new JTextField();
+		field2 = new JTextField();
+		field3 = new JTextField();
 
-		Object[] course2 = { "Course Name", field4, "Number of Credits",
-				field5, "Cost Per Credit", field6 };
+		Object[] course2 = { "Course Name", field1, "Number of Credits",
+				field2, "Cost Per Credit", field3 };
 		// get course name, credit and cost per credit for second course from
 		// user
 		int options = JOptionPane.showConfirmDialog(null, course2,
@@ -96,9 +97,9 @@ public class TuitionObjectStyle {
 		} else if (options == JOptionPane.OK_OPTION) {
 			try {
 				// set course details for second course
-				c2.setCourseName(field4.getText());
-				c2.setNumberOfCredits(Integer.parseInt(field5.getText()));
-				c2.setCostPerCredit(Integer.parseInt(field6.getText()));
+				c2.setCourseName(field1.getText());
+				c2.setNumberOfCredits(Integer.parseInt(field2.getText()));
+				c2.setCostPerCredit(Integer.parseInt(field3.getText()));
 
 				// print course name and the tuition fee for second courses
 				c2.printTuitionDetails();

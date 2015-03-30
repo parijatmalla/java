@@ -19,12 +19,12 @@ public class OnlineCourse extends Course {
 	 * @param cPCredit
 	 * @param noOfCredits
 	 */
-	
-	//constructor with four arguments
+
+	// constructor with four arguments
 	public OnlineCourse(String cName, int cPCredit, int noOfCredits, int techFee) {
 
 		super(cName, cPCredit, noOfCredits);
-		technologyFee = techFee;
+		this.setTechnologyFee(techFee);
 
 		System.out.println("In OnlineCourse Constructor values set: ");
 		System.out.println("\tCourseName = " + getCourseName()
@@ -34,15 +34,19 @@ public class OnlineCourse extends Course {
 
 	}
 
+	@Override
 	public int getTotalTuition() {
-		//compute tuition from super class Course and add technology fee to online course
-		return super.getTotalTuition()+technologyFee*getNumberOfCredits();
+		// compute tuition from super class Course and add technology fee to
+		// online course
+		return super.getTotalTuition() + technologyFee * getNumberOfCredits();
 	}
 
-	//method to return the string as Onlie course <course name> @$<tuition fee>
+	// method to return the string as Online course <course name> @$<tuition
+	// fee>
+	@Override
 	public String toString() {
 		String s;
-		s = "Online Course:" + getCourseName() + "@$" + getTotalTuition();
+		s = "OnlineCourse:" + getCourseName() + " @ $" + getTotalTuition();
 		return s;
 	}
 
@@ -59,13 +63,6 @@ public class OnlineCourse extends Course {
 	 */
 	public void setTechnologyFee(int technologyFee) {
 		this.technologyFee = technologyFee;
-	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-
 	}
 
 }

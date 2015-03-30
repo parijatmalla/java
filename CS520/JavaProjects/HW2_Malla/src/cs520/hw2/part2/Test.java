@@ -21,6 +21,10 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+	
+		
+		
 		System.out.println("Taking a regular course...");
 
 		// creating an object for course CS520
@@ -38,7 +42,7 @@ public class Test {
 		currentCourse = currentOnlineCourse;
 
 		// printing online course details
-		System.out.println("Printing...");
+		
 		System.out.println(currentCourse.toString());
 
 	}
