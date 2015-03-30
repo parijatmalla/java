@@ -6,10 +6,10 @@ import javax.swing.JOptionPane;
  * @author Parijat Malla
  * 
  * 
- * program to get input from user and show the number of bills of denominations 100,50,20,10,5,2,1
- *
+ *         program to get input from user and show the number of bills of
+ *         denominations 100,50,20,10,5,2,1
+ * 
  * */
-
 
 public class Banking {
 
@@ -22,7 +22,7 @@ public class Banking {
 
 		// Get dollar amount from user
 		input = JOptionPane.showInputDialog("Enter the amount:");
-		
+
 		// convert to an integer assuming user sends only integer
 		amount = Integer.parseInt(input);
 
