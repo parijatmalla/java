@@ -61,10 +61,10 @@ public class TuitionProceduralStyle {
 
 		// display tuition fee for first course
 		// formating tuition fee to currency format
-		NumberFormat numberformatter1 = NumberFormat.getCurrencyInstance();
+		NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
 
 		JOptionPane.showMessageDialog(null, "The tuition for first course "
-				+ courseName1 + " is " + numberformatter1.format(tuition1));
+				+ courseName1 + " is " + numberFormatter.format(tuition1));
 
 		// get course name, credit and cost per credit from user for second
 		// course
@@ -100,26 +100,26 @@ public class TuitionProceduralStyle {
 		// display the tuition fee for second course
 		// NumberFormat numberformatter2=NumberFormat.getCurrencyInstance();
 		JOptionPane.showMessageDialog(null, "The tuition for second course "
-				+ courseName2 + " is " + numberformatter1.format(tuition2));
+				+ courseName2 + " is " + numberFormatter.format(tuition2));
 
 		// compare the tuition for both the courses and find out which one is
 		// expensive
-		if (tuition1 > tuition2) {
-			JOptionPane.showMessageDialog(null, "The first course "
+		if (tuition1 < tuition2) {
+			JOptionPane.showMessageDialog(null, "The tuition fee for first course "
 					+ courseName1 + " is cheaper than second course "
 					+ courseName2
-					+ ". The difference between these courses is "
-					+ numberformatter1.format((tuition1 - tuition2)));
-		} else if (tuition1 < tuition2) {
-			JOptionPane.showMessageDialog(null, "The first course "
-					+ courseName1 + " is cheaper than second course "
-					+ courseName2
-					+ ". The difference between these courses is "
-					+ numberformatter1.format((tuition2 - tuition1)));
+					+ ". The difference in fees between these courses is "
+					+ numberFormatter.format((tuition2 - tuition1)));
+		} else if (tuition1 > tuition2) {
+			JOptionPane.showMessageDialog(null, "The tuition fee for second course "
+					+ courseName2 + " is cheaper than first course "
+					+ courseName1
+					+ ". The difference in fees between these courses is "
+					+ numberFormatter.format((tuition1 - tuition2)));
 		} else if (tuition1 == tuition2) {
 			JOptionPane
 					.showMessageDialog(null, "Both the courses " + courseName1
-							+ " and " + courseName2 + " have equal cost.");
+							+ " and " + courseName2 + " have equal tuition fee.");
 		}
 
 	}

@@ -30,23 +30,17 @@ public class TuitionObjectStyle {
 	 */
 	public static void main(String[] args) {
 
-		Course c1;
-		Course c2;
+		Course c1 = new Course();
+		Course c2 = new Course();
 
 		// get input from user
 		// for first course
-		String courseName1 = new String();
-		int costPerCredit1 = 0;
-		int numberOfCredits1 = 0;
-
+	
 		JTextField field1 = new JTextField();
 		JTextField field2 = new JTextField();
 		JTextField field3 = new JTextField();
 
-		// variables for second course
-		String courseName2 = new String();
-		int costPerCredit2 = 0;
-		int numberOfCredits2 = 0;
+		
 
 		Object[] course1 = { "Course Name", field1, "Number of Credits",
 				field2, "Cost Per Unit Credits", field3 };
@@ -63,9 +57,16 @@ public class TuitionObjectStyle {
 		} else if (option == JOptionPane.OK_OPTION) {
 
 			try {
-				courseName1 = field1.getText();
-				costPerCredit1 = Integer.parseInt(field2.getText());
-				numberOfCredits1 = Integer.parseInt(field3.getText());
+				// set the course details for first course
+
+				c1.setCourseName(field1.getText());
+				c1.setNumberOfCredits(Integer.parseInt(field2.getText()));
+				c1.setCostPerCredit(Integer.parseInt(field3.getText()));
+
+				// print course name and the tuition fee for first courses
+
+				c1.printTuitionDetails();
+
 			} catch (NumberFormatException e) {
 
 				// when input from user are not valid, program is terminated
@@ -76,25 +77,14 @@ public class TuitionObjectStyle {
 
 		}
 
-		c1 = new Course();
-
-		// set the course details for first course
-		c1.setCostPerCredit(costPerCredit1);
-		c1.setCourseName(courseName1);
-		c1.setNumberOfCredits(numberOfCredits1);
-
-		// print course name and the tuition fee for first courses
-
-		c1.printTuitionDetails();
-
 		// get course name, credit and cost per credit from user for second
 		// course
 		JTextField field4 = new JTextField();
 		JTextField field5 = new JTextField();
 		JTextField field6 = new JTextField();
 
-		Object[] course2 = { "Course Name", field4, "Credit", field5,
-				"Cost Per Credit", field6 };
+		Object[] course2 = { "Course Name", field4, "Number of Credits",
+				field5, "Cost Per Credit", field6 };
 		// get course name, credit and cost per credit for second course from
 		// user
 		int options = JOptionPane.showConfirmDialog(null, course2,
@@ -105,9 +95,14 @@ public class TuitionObjectStyle {
 			System.exit(1);
 		} else if (options == JOptionPane.OK_OPTION) {
 			try {
-				courseName2 = field4.getText();
-				costPerCredit2 = Integer.parseInt(field5.getText());
-				numberOfCredits2 = Integer.parseInt(field6.getText());
+				// set course details for second course
+				c2.setCourseName(field4.getText());
+				c2.setNumberOfCredits(Integer.parseInt(field5.getText()));
+				c2.setCostPerCredit(Integer.parseInt(field6.getText()));
+
+				// print course name and the tuition fee for second courses
+				c2.printTuitionDetails();
+
 			} catch (NumberFormatException e) {
 				System.out
 						.println("Invalid arguments entered.Program terminated");
@@ -116,15 +111,6 @@ public class TuitionObjectStyle {
 
 		}
 
-		c2 = new Course();
-
-		// set the course details for second course
-		c2.setCostPerCredit(costPerCredit2);
-		c2.setCourseName(courseName2);
-		c2.setNumberOfCredits(numberOfCredits2);
-
-		// print course name and the tuition fee for second courses
-		c2.printTuitionDetails();
 		NumberFormat formattedno = NumberFormat.getCurrencyInstance();
 		if (c1.getTotalTuition() > c2.getTotalTuition()) {
 			JOptionPane
