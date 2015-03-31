@@ -5,8 +5,9 @@ import java.text.NumberFormat;
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
 
-/**
- * @author Parijat Malla program to get course details for two courses from user
+/*
+ * @author Parijat Malla 
+ * program to get course details for two courses from user
  *         and find out tuition fee for each of them as well as display which
  *         course has higher tuition fee and the difference. this program is
  *         done in procedural programming style

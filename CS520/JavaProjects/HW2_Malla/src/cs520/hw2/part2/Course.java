@@ -82,7 +82,7 @@ public class Course {
 	@Override
 	public String toString() {
 		String s;
-		s = "Course:" + getCourseName() + " @ $" + getTotalTuition();
+		s = "Course:" + getCourseName() + " @ $" + getTotalTuition()+"\n";
 		return s;
 	}
 

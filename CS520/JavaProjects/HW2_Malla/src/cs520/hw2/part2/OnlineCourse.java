@@ -46,7 +46,7 @@ public class OnlineCourse extends Course {
 	@Override
 	public String toString() {
 		String s;
-		s = "OnlineCourse:" + getCourseName() + " @ $" + getTotalTuition();
+		s = "OnlineCourse:" + getCourseName() + " @ $" + getTotalTuition()+"\n";
 		return s;
 	}
 

@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 
 /*
  * @author Parijat Malla 
- * 		   program to write TuitionProcedure in object oriented
+ * 		   program to write TuitionProceduralStyle.java in object oriented
  *         style. this program gets two course details from user, computes the
  *         tuition fee for each using the class Course and compares their fees.
  *         also the program displays which course has higher fee including the
@@ -137,7 +137,7 @@ public class TuitionObjectStyle {
 											.getTotalTuition())));
 		} else if (c1.getTotalTuition() == c2.getTotalTuition()) {
 			JOptionPane.showMessageDialog(null, "The fee for both the courses "
-					+ c2.getCourseName() + " and " + c2.getCourseName()
+					+ c1.getCourseName() + " and " + c2.getCourseName()
 					+ " are equal");
 
 		}
