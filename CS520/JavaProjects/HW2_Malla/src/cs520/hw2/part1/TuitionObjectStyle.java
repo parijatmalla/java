@@ -18,9 +18,6 @@ import javax.swing.JTextField;
  */
 public class TuitionObjectStyle {
 
-	/**
-	 * 
-	 */
 	public TuitionObjectStyle() {
 
 	}
@@ -112,7 +109,7 @@ public class TuitionObjectStyle {
 
 		}
 
-		NumberFormat formattedno = NumberFormat.getCurrencyInstance();
+		NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
 		if (c1.getTotalTuition() > c2.getTotalTuition()) {
 			JOptionPane
 					.showMessageDialog(
@@ -122,7 +119,7 @@ public class TuitionObjectStyle {
 									+ " is higher than second course "
 									+ c2.getCourseName()
 									+ ". The difference in fee between these courses is "
-									+ formattedno.format((c1.getTotalTuition() - c2
+									+ numberFormatter.format((c1.getTotalTuition() - c2
 											.getTotalTuition())));
 		} else if (c1.getTotalTuition() < c2.getTotalTuition()) {
 			JOptionPane
@@ -133,7 +130,7 @@ public class TuitionObjectStyle {
 									+ " is higher than first course "
 									+ c1.getCourseName()
 									+ ". The difference in fee between these courses is "
-									+ formattedno.format((c2.getTotalTuition() - c1
+									+ numberFormatter.format((c2.getTotalTuition() - c1
 											.getTotalTuition())));
 		} else if (c1.getTotalTuition() == c2.getTotalTuition()) {
 			JOptionPane.showMessageDialog(null, "The fee for both the courses "

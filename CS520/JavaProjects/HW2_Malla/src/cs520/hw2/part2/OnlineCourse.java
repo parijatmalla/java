@@ -24,7 +24,7 @@ public class OnlineCourse extends Course {
 	public OnlineCourse(String cName, int cPCredit, int noOfCredits, int techFee) {
 
 		super(cName, cPCredit, noOfCredits);
-		this.setTechnologyFee(techFee);
+		setTechnologyFee(techFee);
 
 		System.out.println("In OnlineCourse Constructor values set: ");
 		System.out.println("\tCourseName = " + getCourseName()

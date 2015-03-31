@@ -10,9 +10,7 @@ package cs520.hw2.part2;
  */
 public class Test {
 
-	/**
-	 * 
-	 */
+	
 	public Test() {
 
 	}
