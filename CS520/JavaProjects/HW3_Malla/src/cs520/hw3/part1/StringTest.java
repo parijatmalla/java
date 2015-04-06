@@ -22,7 +22,7 @@ public class StringTest {
 	 * @param args
 	 * @throws Exception
 	 */
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		// get input from user
 		String input;
 		int indexOfFirstComma = 0, indexOfSecondComma = 0;
@@ -88,24 +88,23 @@ public class StringTest {
 			System.out.print("Regular Tuition: $" + tuition + " , ");
 
 			// trim spaces from discount
-			int discount = Integer.parseInt(tuition.trim());
-			discount = (int) (discount * 0.75);
+			int discount = (int) (Integer.parseInt(tuition.trim()) * 0.75);
 
 			// display discounted tuition fee which is 75% of tuition
 			System.out.println("Discounted Tuition: $" + discount);
-			// done = true;
+			
 		}
 
 		// handle exception when tuition fee provided is not a number
 		catch (NumberFormatException e1) {
 			System.out.println(e1+" Invalid Tuition fee provided. " );
-			System.exit(0);
+			
 		}
 		// Null pointer exception when user cancels and no data is feed
 		catch (NullPointerException e) {
 
 			System.out.println("The program has been cancelled." + e);
-			System.exit(0);
+			
 
 		}
 		// handle exception when only course ID is provided
