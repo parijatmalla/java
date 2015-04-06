@@ -46,7 +46,7 @@ public class StringTest {
 			courseID = input.substring(0, indexOfFirstComma);
 			courseID = courseID.trim();
 
-			// handle exception when course id is not entered
+			// show warning when course id is not entered
 			if (courseID.length() == 0)
 				throw new ZeroLengthInput("Course ID has not been entered.");
 			System.out.print("Course Id:" + courseID + " , ");
@@ -63,21 +63,18 @@ public class StringTest {
 					indexOfSecondComma);
 			courseName = courseName.trim();
 
-			// handle exception when course name is not entered
+			// show warning when course name is not entered
 			if (courseName.length() == 0)
 				throw new ZeroLengthInput("Course Name has not been entered.");
 
 			System.out.print("Course Name:" + courseName + " , ");
 			System.out.println("Length:" + courseName.length());
-			// }
-			// done = true;
 
-			// try {
 			// find out tuition from input string
-
 			tuition = input.substring(indexOfSecondComma + 1, input.length());
 			tuition = tuition.trim();
-			// handle exception if tuition fee is not entered
+
+			// show warning if tuition fee is not entered
 			if (tuition.length() == 0)
 				throw new ZeroLengthInput("Tuition  has not been entered.");
 
@@ -87,24 +84,24 @@ public class StringTest {
 						"Tuition Fee is negative number.Please enter correct tuition fee");
 			System.out.print("Regular Tuition: $" + tuition + " , ");
 
-			// trim spaces from discount
+			// find discounted tuition fee at 25% discount which is 75% of
+			// tuition fee
 			int discount = (int) (Integer.parseInt(tuition.trim()) * 0.75);
 
 			// display discounted tuition fee which is 75% of tuition
 			System.out.println("Discounted Tuition: $" + discount);
-			
+
 		}
 
 		// handle exception when tuition fee provided is not a number
 		catch (NumberFormatException e1) {
-			System.out.println(e1+" Invalid Tuition fee provided. " );
-			
+			System.out.println(e1 + " Invalid Tuition fee provided. ");
+
 		}
-		// Null pointer exception when user cancels and no data is feed
+		// Null pointer exception when user cancels and no data is fed
 		catch (NullPointerException e) {
 
 			System.out.println("The program has been cancelled." + e);
-			
 
 		}
 		// handle exception when only course ID is provided
@@ -113,10 +110,13 @@ public class StringTest {
 					.println("Incomplete data provided.Please provide CourseID, CourseName and tuition fee."
 							+ e);
 			System.exit(0);
-		} catch (NegativeNumberException e) {
+		}
+		// handle exception when negative tuition is provided
+		catch (NegativeNumberException e) {
 			System.out.println(e);
 		}
-
+		// handle exception when blank courseID or coursename or tuition fee is
+		// fed
 		catch (ZeroLengthInput e) {
 			System.out.println(e);
 		}
