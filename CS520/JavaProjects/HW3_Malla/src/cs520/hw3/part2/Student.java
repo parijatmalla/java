@@ -14,9 +14,7 @@ import java.util.Formatter;
  */
 public class Student {
 
-	/**
-	 * 
-	 */
+	
 private String name;
 private int homework1;
 private int homework2;
@@ -90,9 +88,6 @@ public Student(String n){}
 		
 		return s;
 	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 }

@@ -10,7 +10,8 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 /**
- * @author parijat malla program to read content from a file for student's
+ * @author parijat malla
+ *  program to read content from a file for student's
  *         record and print average score for each student
  * 
  */
@@ -20,7 +21,8 @@ public class Test {
 
 	}
 
-	private void processInputData(String st) {
+	//processInputData is private method. It's made static as this method can be called only within this class.
+	private static void processInputData(String st) {
 		StringTokenizer st1 = new StringTokenizer(st, ",");
 
 		// check if all the homework scores and name are provided in the input
@@ -33,8 +35,7 @@ public class Test {
 		} else {
 			Student currentStudent = new Student();
 
-			while (st1.hasMoreTokens()) {
-
+			
 				currentStudent.setName(st1.nextToken());
 				currentStudent.setHomework1(Integer.parseInt(st1.nextToken()));
 				currentStudent.setHomework2(Integer.parseInt(st1.nextToken()));
@@ -46,8 +47,7 @@ public class Test {
 
 				currentStudent.setHomework6(Integer.parseInt(st1.nextToken()));
 
-			}
-			// System.out.println("token-i"+token+","+i);
+			
 			System.out.printf(currentStudent.toString());
 
 		}
@@ -59,7 +59,7 @@ public class Test {
 	 */
 	public static void main(String[] args) throws IOException {
 
-		Test t1 = new Test();
+		
 
 		// read input from file data.txt
 		BufferedReader inputStream = null;
@@ -79,17 +79,16 @@ public class Test {
 			while (line != null) {
 
 				// System.out.println(line);
-				t1.processInputData(line);
+				processInputData(line);
 				line = inputStream.readLine();
-				// line=inputStream.readLine();
-				// System.out.println("in readline");
+			
 
 			}
 
 		}
 
 		catch (IOException e) {
-			System.out.println("End of file");
+			System.out.println(e);
 		} catch (NumberFormatException e) {
 			System.out.println(e + "Invalid number format provided");
 		}
