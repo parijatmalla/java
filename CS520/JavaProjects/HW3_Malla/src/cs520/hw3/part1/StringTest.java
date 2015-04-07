@@ -41,7 +41,7 @@ public class StringTest {
 			indexOfFirstComma = input.indexOf(",");
 
 			System.out.print("First Comma Position:" + indexOfFirstComma
-					+ " , ");
+					+ ", ");
 			// find out course ID from input string
 			courseID = input.substring(0, indexOfFirstComma);
 			courseID = courseID.trim();
@@ -49,14 +49,14 @@ public class StringTest {
 			// show warning when course id is not entered
 			if (courseID.length() == 0)
 				throw new ZeroLengthInput("Course ID has not been entered.");
-			System.out.print("Course Id:" + courseID + " , ");
+			System.out.print("Course Id:" + courseID + ", ");
 			System.out.println("Length :" + courseID.length());
 
 			// find index of second comma
 			indexOfSecondComma = input.indexOf(",", indexOfFirstComma + 1);
 
 			System.out.print("Second Comma Position:" + indexOfSecondComma
-					+ " , ");
+					+ ", ");
 
 			// find out course Name from input string
 			courseName = input.substring(indexOfFirstComma + 1,
@@ -67,7 +67,7 @@ public class StringTest {
 			if (courseName.length() == 0)
 				throw new ZeroLengthInput("Course Name has not been entered.");
 
-			System.out.print("Course Name:" + courseName + " , ");
+			System.out.print("Course Name:" + courseName + ", ");
 			System.out.println("Length:" + courseName.length());
 
 			// find out tuition from input string
@@ -82,7 +82,7 @@ public class StringTest {
 			if (Integer.parseInt(tuition) < 0)
 				throw new NegativeNumberException(
 						"Tuition Fee is negative number.Please enter correct tuition fee");
-			System.out.print("Regular Tuition: $" + tuition + " , ");
+			System.out.print("Regular Tuition: $" + tuition + ", ");
 
 			// find discounted tuition fee at 25% discount which is 75% of
 			// tuition fee
