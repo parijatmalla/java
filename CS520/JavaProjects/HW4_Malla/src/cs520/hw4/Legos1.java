@@ -35,13 +35,13 @@ public class Legos1 extends JFrame {
 
 		for (int row = 0; row <= baseLength; row++) {
 			strokeColor = Color.RED;
-
-			for (int col = 0; col <= (baseLength - row); col++) {
+		
+			for (int col = row; col <= baseLength; col++) {
 
 				g.setColor(strokeColor);
-				g.fillRoundRect(startX + (col * legoWidth)
-						+ (row * legoWidth / 2), startY - (row * legoHeight),
-						legoWidth, legoHeight, arcWidth, arcHeight);
+				g.fillRoundRect(startX + (col * (legoWidth)-(row)), startY
+						- (row * legoHeight), legoWidth, legoHeight, arcWidth,
+						arcHeight);
 
 				// switch color
 				if (strokeColor == Color.RED) {
