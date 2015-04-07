@@ -8,7 +8,7 @@ import java.text.NumberFormat;
 import java.util.Formatter;
 
 /*
- * @author parijat malla
+ * @parijat malla
  * class for homework scores for students for 6 courses and get the average score.
  *
  */
@@ -80,12 +80,11 @@ public Student(String n){}
 		return sum/6;
 	} 
 	
+	@Override
 	public String toString(){
 		DecimalFormat formatter=new DecimalFormat("#.00");
 		String sformatted=formatter.format(computeAverage());
-		String s="\n"+name+"'s"+" average grade is "+sformatted;
-
-		
+		String s="\n "+name+"'s"+" average grade is "+sformatted;
 		return s;
 	}
 	

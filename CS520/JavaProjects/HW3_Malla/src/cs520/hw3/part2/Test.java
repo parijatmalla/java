@@ -10,8 +10,7 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 /**
- * @author parijat malla
- *  program to read content from a file for student's
+ * @author parijat malla program to read content from a file for student's
  *         record and print average score for each student
  * 
  */
@@ -21,7 +20,9 @@ public class Test {
 
 	}
 
-	//processInputData is private method. It's made static as this method can be called only within this class.
+	// processInputData is private method. It's made static as this method can
+	// be called only within this class and need not be called outside this as
+	// it is private.
 	private static void processInputData(String st) {
 		StringTokenizer st1 = new StringTokenizer(st, ",");
 
@@ -35,19 +36,17 @@ public class Test {
 		} else {
 			Student currentStudent = new Student();
 
-			
-				currentStudent.setName(st1.nextToken());
-				currentStudent.setHomework1(Integer.parseInt(st1.nextToken()));
-				currentStudent.setHomework2(Integer.parseInt(st1.nextToken()));
-				currentStudent.setHomework3(Integer.parseInt(st1.nextToken()));
+			currentStudent.setName(st1.nextToken());
+			currentStudent.setHomework1(Integer.parseInt(st1.nextToken()));
+			currentStudent.setHomework2(Integer.parseInt(st1.nextToken()));
+			currentStudent.setHomework3(Integer.parseInt(st1.nextToken()));
 
-				currentStudent.setHomework4(Integer.parseInt(st1.nextToken()));
+			currentStudent.setHomework4(Integer.parseInt(st1.nextToken()));
 
-				currentStudent.setHomework5(Integer.parseInt(st1.nextToken()));
+			currentStudent.setHomework5(Integer.parseInt(st1.nextToken()));
 
-				currentStudent.setHomework6(Integer.parseInt(st1.nextToken()));
+			currentStudent.setHomework6(Integer.parseInt(st1.nextToken()));
 
-			
 			System.out.printf(currentStudent.toString());
 
 		}
@@ -59,15 +58,12 @@ public class Test {
 	 */
 	public static void main(String[] args) throws IOException {
 
-		
-
 		// read input from file data.txt
 		BufferedReader inputStream = null;
 		String line = "";
 
 		try {
 			inputStream = new BufferedReader(new FileReader("data.txt"));
-			// System.out.println("buffered");
 
 		} catch (FileNotFoundException e) {
 			System.out.println(e + "File not found in provided location");
@@ -78,10 +74,8 @@ public class Test {
 			line = inputStream.readLine();
 			while (line != null) {
 
-				// System.out.println(line);
 				processInputData(line);
 				line = inputStream.readLine();
-			
 
 			}
 
