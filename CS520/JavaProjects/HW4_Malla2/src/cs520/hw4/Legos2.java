@@ -7,12 +7,13 @@ import javax.swing.JFrame;
 
 import java.util.Random;
 
-public class Legos2 extends JFrame{
+public class Legos2 extends JFrame {
 	private int startX;
 	private int startY;
 	private int legoWidth;
 	private int legoHeight;
 	private int baseLength;
+
 	public Legos2() {
 		super("Malla's LEGOs 2"); // Window title;
 		this.startX = 20;
@@ -29,32 +30,44 @@ public class Legos2 extends JFrame{
 		int X, Y;
 		X = startX;
 		Y = startY;
-Color[] colorArray={Color.red, Color.blue, Color.yellow, Color.green, Color.pink, Color.black, Color.magenta,Color.orange, Color.cyan};
- int colorElement;
- 
- Random randomColor= new Random();
-		
+		Color[] colorArray = { Color.red, Color.blue, Color.yellow,
+				Color.green, Color.pink, Color.black, Color.magenta,
+				Color.orange, Color.cyan };
+		int colorElement;
+
+		Random randomColor = new Random();
+
+		// to store color of previous rectangle
+		int previousColor = 0;
+		boolean isSameColor = true;
+
 		// loop to draw rectangles in vertical order
 		for (int j = 1; j <= baseLength; j++) {
-			
+
 			// to draw rectangles with alternate red-blue color in any
 			// horizontal row
 			// for first row there would be all the rectangles, but as we go up
 			// in the legos the number of rectangles in a row decreases, so the
 			// maximum value of i is set baseLength-1-j so that with increase in
 			// height of lego, the number of rectangles in each row decreases
+
+			// int k=colorArray.length;
 			for (int i = 1; i <= baseLength + 1 - j; i++) {
-				
-				//generate color randomly							
-				
-				colorElement=randomColor.nextInt(colorArray.length);
+
+				// do-while loop to keep generating random number if color of
+				// previous rectangle is same as new color
+
+				do {
+					// generate color randomly
+					colorElement = randomColor.nextInt(colorArray.length);
 					g.setColor(colorArray[colorElement]);
 					System.out.println(colorElement);
-					// to change the color of rectangle to blue
-				
 
+				} while (previousColor == colorElement);
+				// store previous color
+				previousColor = colorElement;
 				// Draw Filled rectangle and square
-				//using arcwidth and archeight as 2
+				// using arcwidth and archeight as 2
 				g.fillRoundRect(X, Y, legoWidth, legoHeight, 2, 2);
 				X = X + legoWidth;// move X to new X position
 
@@ -78,6 +91,5 @@ Color[] colorArray={Color.red, Color.blue, Color.yellow, Color.green, Color.pink
 		lg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
-
 
 }
