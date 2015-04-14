@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import java.util.Random;
 
 public class Legos2 extends JFrame {
+	private static final long serialVersionUID = 1L;
 	private int startX;
 	private int startY;
 	private int legoWidth;

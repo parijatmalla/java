@@ -6,7 +6,7 @@ import java.awt.Graphics;
 import javax.swing.JFrame;
 
 public class Legos1 extends JFrame {
-
+	private static final long serialVersionUID = 1L;
 	private int startX;
 	private int startY;
 	private int legoWidth;
@@ -38,7 +38,8 @@ public class Legos1 extends JFrame {
 			for (int i = 0; i < baseLength - j; i++) {
 				// Draw Filled rectangle and square
 				// using arcwidth and archeight as 2
-				g.fillRoundRect((startX + (legoWidth * i) + j * (legoWidth / 2)),
+				g.fillRoundRect(
+						(startX + (legoWidth * i) + j * (legoWidth / 2)),
 						startY - (legoHeight * j), legoWidth, legoHeight, 2, 2);
 				g.setColor((g.getColor() == Color.RED) ? Color.BLUE : Color.RED);
 			}
