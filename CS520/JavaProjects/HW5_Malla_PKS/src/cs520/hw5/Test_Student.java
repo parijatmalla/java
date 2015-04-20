@@ -100,7 +100,18 @@ public class Test_Student {
 		 * string representation of the currentStudent object to the console. 5.
 		 * The method should return the currentStudent object.
 		 */
-		StringTokenizer stringTokenizer = new StringTokenizer(line, ",");
+		StringTokenizer stringTokenizer = new StringTokenizer("a;b;c;d");
+		System.out.println("StringToken count:" +stringTokenizer.countTokens());
+		System.out.println("string revers" +new StringBuffer("abcd").reverse().substring(1, 2));
+		String s1="long string";
+		String s2="shortstr";
+		String s3 = s1 + s2;
+		//char c = s1.substring(0,1);
+		s2 = s1.replace('s', 's');
+		s1 = s2.substring(s1.length());
+		System.out.println("s1:" +s1 +"   "+"s2:" +s2);
+		
+		
 		String currentStudentName = stringTokenizer.nextToken();
 		Student currentStudent = new Student(currentStudentName);
 		while (stringTokenizer.hasMoreTokens()) {
