@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.HashMap;
-import java.util.Queue;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -17,87 +16,66 @@ public class Test {
 
 	}
 
-	//processInputData method to read data from file and get the homework scores for a student.
+	// processInputData method to read data from file and get the homework
+	// scores for a student.
 	private static Student processInputData(String st) {
 		StringTokenizer st1 = new StringTokenizer(st, ",");
-		String name=st1.nextToken();
+		String name = st1.nextToken();
 		Student currentStudent = new Student(name);
 
-		int numberOfTokens = st1.countTokens();
-		// add howework scores from file into Student object
-		while(st1.hasMoreTokens()){
-
+		// add homework scores from file into Student object
+		while (st1.hasMoreTokens()) {
 			currentStudent.addHomeworkGrade(Integer.parseInt(st1.nextToken()));
-
 		}
 
-		System.out.printf(currentStudent.toString());
+		System.out.println(currentStudent.toString());
 		return currentStudent;
 	}
 
 	public static void main(String[] args) throws IOException {
-		LinkedList<Student> studentQueue;
 		// Create an empty queue
-		studentQueue = new LinkedList<Student>();
+		LinkedList<Student> studentQueue = new LinkedList<Student>();
 
 		HashMap<String, Student> studentMap = new HashMap<String, Student>();
-		
-	
-		
 
 		// read input from file data.txt
 		BufferedReader inputStream = null;
-		String line = "";
-		
-		Student aStudent;
+		String line;
 
 		try {
 			inputStream = new BufferedReader(new FileReader("data.txt"));
-
-		} catch (FileNotFoundException e) {
-			System.out.println(e + "File not found in provided location");
-			System.exit(0);
-		}
-
-		try {
 			line = inputStream.readLine();
-			System.out.print("Input file processing...");
+			System.out.println("Input file processing...");
 			while (line != null) {
 
-				
-				aStudent=processInputData(line);
-				//adding each student to studentQueue
+				Student aStudent = processInputData(line);
+				// adding each student to studentQueue
 				studentQueue.add(aStudent);
-				
-				//adding student object to student map
+
+				// adding student object to student map
 				studentMap.put(aStudent.getName(), aStudent);
 				line = inputStream.readLine();
 
 			}
-			Iterator<Student> studentIterator=studentQueue.iterator();
-			System.out.print("\n\nIterating over the student list...");
-			while(studentIterator.hasNext()){
-				
-				System.out.print(studentIterator.next());
-				
+			System.out.println("\nIterating over the student list...");
+			for (Student studentObj : studentQueue) {
+				System.out.println(studentObj.toString());
 			}
-			
-			//access all the keys in the map
-			Set<String> studentKeys=studentMap.keySet();
-			
-			//iterator over each key of studentMap 
-			Iterator<String> studentIterator2=studentKeys.iterator();
-			System.out.print("\n\nIterating over the student map...");
-			while(studentIterator2.hasNext()){
-				String name=studentIterator2.next();
-				System.out.print(studentMap.get(name));
+
+			// access all the keys in the map
+			Set<String> studentKeys = studentMap.keySet();
+
+			// iterator over each key of studentMap
+			Iterator<String> studentIterator = studentKeys.iterator();
+			System.out.println("\nIterating over the student map...");
+			while (studentIterator.hasNext()) {
+				String name = studentIterator.next();
+				System.out.println((studentMap.get(name)).toString());
 			}
-			
-			
 
-		}
-
-		catch (IOException e) {
+		} catch (FileNotFoundException e) {
+			System.out.println(e + "File not found in provided location");
+		} catch (IOException e) {
 			System.out.println(e);
 		} catch (NumberFormatException e) {
 			System.out.println(e + "Invalid number format provided");
@@ -106,8 +84,6 @@ public class Test {
 		finally {
 			inputStream.close();
 		}
-		
-		
 
 	}
 
