@@ -32,7 +32,7 @@ public class Test {
 		return currentStudent;
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		// Create an empty queue
 		LinkedList<Student> studentQueue = new LinkedList<Student>();
 
@@ -57,6 +57,8 @@ public class Test {
 				line = inputStream.readLine();
 
 			}
+			inputStream.close();
+
 			System.out.println("\nIterating over the student list...");
 			for (Student studentObj : studentQueue) {
 				System.out.println(studentObj.toString());
@@ -79,10 +81,6 @@ public class Test {
 			System.out.println(e);
 		} catch (NumberFormatException e) {
 			System.out.println(e + "Invalid number format provided");
-		}
-
-		finally {
-			inputStream.close();
 		}
 
 	}
