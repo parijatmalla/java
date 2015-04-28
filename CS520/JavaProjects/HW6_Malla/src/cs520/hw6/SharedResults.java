@@ -19,14 +19,14 @@ public class SharedResults {
 	/**
 	 * @param numToAdd
 	 */
-	public synchronized void addResult(int numToAdd) {
+	public synchronized void addToResult(int numToAdd) {
 		result += numToAdd;
 		// get current threads name
 		String threadName = Thread.currentThread().getName();
 
 		// TODO: use proper formatting to print the result
-		System.out.println(threadName + " is adding " + result
-				+ ", Cumulative Result is " + numToAdd);
+		System.out.println(threadName + " is adding " + numToAdd
+				+ ", Cumulative Result is " + result);
 	}
 
 	public synchronized int getResult() {

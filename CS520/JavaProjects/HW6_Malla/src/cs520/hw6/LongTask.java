@@ -39,7 +39,8 @@ public class LongTask extends Thread {
 		}
 		// After the loop, invoke the addToResult method
 		// of the shared object and provide this accumulated sum.
-		sharedData.addResult(accumulatedSum);
+		sharedData.addToResult(accumulatedSum);
+	
 
 	}
 }

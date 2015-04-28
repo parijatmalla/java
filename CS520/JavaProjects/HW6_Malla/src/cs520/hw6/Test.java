@@ -1,6 +1,6 @@
 package cs520.hw6;
 
-public class TestHW6 {
+public class Test {
 
 	public static void main(String[] args) {
 		// Create the SharedResults object and assign it to a variable.
